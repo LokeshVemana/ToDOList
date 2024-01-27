@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <style>
+        body {
+  height: 100vh;
+  text-align: center;
+  background: linear-gradient(90deg, rgb(25, 18, 162) 0%, rgba(121,45,9,1) 35%, rgba(0,212,255,1) 100%);
+}
+h1{
+  color:aqua;
+}
+#Empty{
+  background-color:white;
+  padding: 23px 20px;
+  margin-top: 40px;
+  border-radius: 5px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+  width:600px;
+  transform: translateX(280px);
+
+}
+input {
+  width: 800px;
+  height: 30px;
+}
+#Add {
+  width: 70px;
+  height: 30px;
+  background-color: bisque;
+  border-radius: 2px;
+}
+#Add:hover {
+  background-color: blue;
+}
+.Text{
+  background-color:white;
+    height: 50px;
+    padding: 5px 10px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #d1d3d4;
+    cursor: pointer;
+}
+.MainDiv{
+  width: 100%;
+    min-width: 400px;
+    margin: auto;
+    padding: 30px 40px;
+}
+*{
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
+  font-family: 'Josefin Sans', sans-serif;
+}
+.Text button{
+  background-color:rgb(157, 20, 20);
+  height: 100%;
+  width: 40px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  font-size: 20px;
+}
+/* @media screen and (max-width:){
+  
+} */
+
+
+
+    </style>
+</head>
+  <body>
+      <h1>To-Do List</h1>
+    <div class="MainDiv">
+      <div id="text">
+        <input
+        type="text"
+        name="Add a Task"
+        id="title"
+        placeholder="Add a Task"
+      />
+      <button id="Add">Add Items</button>
+       </div>
+
+       <div id="Empty">
+        
+       </div> 
+    </div>
+    
+    <script>
+//Creat a new item when click the add button
+
+document.querySelector("#Add").onclick=function(){  
+  document.querySelector( "#Empty" ).innerHTML += 
+  `<div class="Text">
+  <span id="Call">
+  ${
+    document.querySelector("#title").value
+  }</span>
+  
+ 
+
+  <button class='delete'>
+          <i class="far fa-trash-alt"></i>
+          </button>
+  </div>`;
+
+
+  const del=document.querySelectorAll(".delete")
+  for(i=0;i<del.length;i++){
+    del[i].onclick=function(){
+        this.parentNode.remove()
+    }
+  }
+}
+
+
+
+  
+    </script>
+  </body>
+</html>
+
+
+
